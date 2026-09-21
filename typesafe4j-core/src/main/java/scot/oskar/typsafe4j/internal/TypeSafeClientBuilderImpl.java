@@ -6,7 +6,7 @@ import scot.oskar.typsafe4j.credential.TypeSafeCredentialProvider;
 
 import java.time.Duration;
 
-public class TypeSafeClientBuilderImpl implements TypeSafeClientBuilder {
+public final class TypeSafeClientBuilderImpl implements TypeSafeClientBuilder {
 
     private TypeSafeCredentialProvider credentialProvider;
     private Duration timeout =  Duration.ofSeconds(30);

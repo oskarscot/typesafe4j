@@ -13,7 +13,7 @@ import java.net.http.HttpResponse;
 import java.nio.charset.Charset;
 import java.time.Duration;
 
-public class DefaultHttpTransportImpl implements Transport, AutoCloseable {
+final class DefaultHttpTransportImpl implements Transport, AutoCloseable {
 
     public static final URI TYPESAFE_API_URL = URI.create("https://api.typesafe.ai/v1/");
 

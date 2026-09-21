@@ -1,6 +1,6 @@
 package scot.oskar.typsafe4j.credential;
 
-public class EnvironmentTypeSafeCredentialProvider implements TypeSafeCredentialProvider {
+public final class EnvironmentTypeSafeCredentialProvider implements TypeSafeCredentialProvider {
 
     @Override
     public String getAuthorizationToken() {

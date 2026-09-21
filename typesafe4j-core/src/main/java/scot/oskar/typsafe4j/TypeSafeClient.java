@@ -1,6 +1,8 @@
 package scot.oskar.typsafe4j;
 
 import scot.oskar.typsafe4j.internal.TypeSafeClientBuilderImpl;
+import scot.oskar.typsafe4j.systemone.SystemOneRequest;
+import scot.oskar.typsafe4j.systemone.SystemOneResponse;
 
 public interface TypeSafeClient {
 
@@ -8,6 +10,6 @@ public interface TypeSafeClient {
         return new TypeSafeClientBuilderImpl();
     }
 
-    SystemOneClient systemOne();
+    SystemOneResponse systemOne(SystemOneRequest request);
 
 }

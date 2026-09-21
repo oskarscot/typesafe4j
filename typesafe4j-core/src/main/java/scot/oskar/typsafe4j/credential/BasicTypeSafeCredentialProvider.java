@@ -1,6 +1,6 @@
 package scot.oskar.typsafe4j.credential;
 
-public class BasicTypeSafeCredentialProvider implements TypeSafeCredentialProvider {
+public final class BasicTypeSafeCredentialProvider implements TypeSafeCredentialProvider {
 
     private final String apiKey;
 

@@ -2,25 +2,22 @@ package scot.oskar.typsafe4j.systemone;
 
 import scot.oskar.typsafe4j.model.Model;
 
-public class SystemOneRequest {
+import java.util.HashMap;
+import java.util.Map;
 
-    private final String state;
-    private final String model;
+public record SystemOneRequest(Object state, String model) {
 
-    public SystemOneRequest(String state, String model) {
-
-    }
-
-    static SystemOneRequestBuilder builder() {
+    public static SystemOneRequestBuilder builder() {
         return new SystemOneRequestBuilder();
     }
 
-    static class SystemOneRequestBuilder {
+    public static class SystemOneRequestBuilder {
 
-        private String model = Model.JEV_LATEST.getModelAlias();
         private String state;
+        private String model = Model.JEV_LATEST.getModelAlias();
+        private Map<String, Question> questionMap = new HashMap<>();
 
-        public SystemOneRequestBuilder withState(String state) {
+        public SystemOneRequestBuilder withSimpleState(String state) {
             this.state = state;
             return this;
         }
@@ -32,6 +29,11 @@ public class SystemOneRequest {
 
         public SystemOneRequestBuilder withModel(String model) {
             this.model = model;
+            return this;
+        }
+
+        public SystemOneRequestBuilder withQuestion(String questionId, Question question) {
+            this.questionMap.put(questionId, question);
             return this;
         }
 
