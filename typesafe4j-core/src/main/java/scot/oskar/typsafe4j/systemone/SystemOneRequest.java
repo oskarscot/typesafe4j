@@ -1,11 +1,16 @@
 package scot.oskar.typsafe4j.systemone;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import scot.oskar.typsafe4j.model.Model;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public record SystemOneRequest(Object state, String model) {
+public record SystemOneRequest(
+        Object state,
+        String model,
+        @JsonProperty("questions") Map<String, Question> questionMap
+) {
 
     public static SystemOneRequestBuilder builder() {
         return new SystemOneRequestBuilder();
@@ -13,9 +18,9 @@ public record SystemOneRequest(Object state, String model) {
 
     public static class SystemOneRequestBuilder {
 
+        private final Map<String, Question> questionMap = new HashMap<>();
         private String state;
         private String model = Model.JEV_LATEST.getModelAlias();
-        private Map<String, Question> questionMap = new HashMap<>();
 
         public SystemOneRequestBuilder withSimpleState(String state) {
             this.state = state;
@@ -38,7 +43,7 @@ public record SystemOneRequest(Object state, String model) {
         }
 
         public SystemOneRequest build() {
-            return new SystemOneRequest(state, model);
+            return new SystemOneRequest(state, model, questionMap);
         }
     }
 }

@@ -6,5 +6,5 @@ import java.util.Map;
 public record TransportRequest(
         URI endpointUri,
         Map<String, String> headers,
-        byte[] body
+        String body
 ) { }

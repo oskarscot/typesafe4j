@@ -1,4 +1,8 @@
 package scot.oskar.typsafe4j.systemone;
 
-public record NoulCriteria(String correct, String incorrect) {
-}
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public record NoulCriteria(
+        @JsonProperty("true") String correct,
+        @JsonProperty("false") String incorrect
+) { }

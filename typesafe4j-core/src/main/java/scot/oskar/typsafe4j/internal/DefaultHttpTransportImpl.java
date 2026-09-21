@@ -37,7 +37,7 @@ final class DefaultHttpTransportImpl implements Transport, AutoCloseable {
                 .timeout(Duration.ofSeconds(30))
                 .header("Content-Type", "application/json")
                 .header("Authorization", "Bearer " + credentialProvider.getAuthorizationToken())
-                .POST(HttpRequest.BodyPublishers.ofByteArray(request.body()));
+                .POST(HttpRequest.BodyPublishers.ofString(request.body()));
 
         request.headers().forEach(builder::header);
 
