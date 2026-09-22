@@ -2,7 +2,6 @@ package scot.oskar.typesafe4j;
 
 import org.junit.jupiter.api.Test;
 import scot.oskar.typsafe4j.TypeSafeClient;
-import scot.oskar.typsafe4j.credential.BasicTypeSafeCredentialProvider;
 import scot.oskar.typsafe4j.credential.EnvironmentTypeSafeCredentialProvider;
 import scot.oskar.typsafe4j.model.Model;
 import scot.oskar.typsafe4j.question.*;
@@ -10,6 +9,8 @@ import scot.oskar.typsafe4j.systemone.SystemOneRequest;
 
 import java.util.List;
 import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TypeSafeClientTest {
 
@@ -53,5 +54,9 @@ public class TypeSafeClientTest {
                         )
                 )
                 .build());
+
+        var isRefund = systemOneResponse.noul("is_refund").isTrue();
+
+        assertTrue(isRefund, "Response expected to be about a refund");
     }
 }

@@ -1,4 +1,9 @@
 package scot.oskar.typsafe4j.answer;
 
-public record ChoiceAnswer() implements Answer {
-}
+import java.util.Map;
+
+public record ChoiceAnswer(
+        String choice,
+        double confidence,
+        Map<String, Double> probabilities
+) implements Answer { }

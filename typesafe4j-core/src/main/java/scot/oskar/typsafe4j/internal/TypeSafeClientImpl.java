@@ -28,6 +28,6 @@ final class TypeSafeClientImpl implements TypeSafeClient {
         var response = requestEncoder.buildRequest(request);
         var execute = this.transport.execute(response);
         var decode = requestDecoder.decode(execute);
-        return null;
+        return decode;
     }
 }
