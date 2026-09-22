@@ -5,8 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import scot.oskar.typsafe4j.internal.JacksonRequestEncoder;
 import scot.oskar.typsafe4j.model.Model;
-import scot.oskar.typsafe4j.systemone.NoulCriteria;
-import scot.oskar.typsafe4j.systemone.Question;
+import scot.oskar.typsafe4j.question.NoulCriteria;
+import scot.oskar.typsafe4j.question.NoulQuestion;
 import scot.oskar.typsafe4j.systemone.SystemOneRequest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,7 +22,7 @@ public class RequestEncoderTest {
                 .withModel(Model.JEV_LATEST)
                 .withQuestion(
                         "is_angry",
-                        new Question.NoulQuestion(
+                        new NoulQuestion(
                                 "is this person angry?",
                                 new NoulCriteria(
                                         "yes this person is very mad",
@@ -33,7 +33,7 @@ public class RequestEncoderTest {
                 )
                 .withQuestion(
                         "is_refund",
-                        Question.NoulQuestion.basic("is this question about a refund?")
+                        NoulQuestion.basic("is this question about a refund?")
                 )
                 .build();
 

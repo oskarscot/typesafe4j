@@ -1,15 +1,17 @@
 package scot.oskar.typsafe4j.systemone;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.jspecify.annotations.NonNull;
 import scot.oskar.typsafe4j.model.Model;
+import scot.oskar.typsafe4j.question.Question;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public record SystemOneRequest(
-        Object state,
-        String model,
-        @JsonProperty("questions") Map<String, Question> questionMap
+        @NonNull Object state,
+        @NonNull String model,
+        @NonNull @JsonProperty("questions") Map<String, Question> questionMap
 ) {
 
     public static SystemOneRequestBuilder builder() {
@@ -22,22 +24,22 @@ public record SystemOneRequest(
         private String state;
         private String model = Model.JEV_LATEST.getModelAlias();
 
-        public SystemOneRequestBuilder withSimpleState(String state) {
+        public SystemOneRequestBuilder withSimpleState(@NonNull String state) {
             this.state = state;
             return this;
         }
 
-        public SystemOneRequestBuilder withModel(Model model) {
+        public SystemOneRequestBuilder withModel(@NonNull Model model) {
             this.model = model.getModelAlias();
             return this;
         }
 
-        public SystemOneRequestBuilder withModel(String model) {
+        public SystemOneRequestBuilder withModel(@NonNull String model) {
             this.model = model;
             return this;
         }
 
-        public SystemOneRequestBuilder withQuestion(String questionId, Question question) {
+        public SystemOneRequestBuilder withQuestion(@NonNull String questionId, @NonNull Question question) {
             this.questionMap.put(questionId, question);
             return this;
         }

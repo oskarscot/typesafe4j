@@ -5,10 +5,11 @@ import scot.oskar.typsafe4j.TypeSafeClient;
 import scot.oskar.typsafe4j.credential.BasicTypeSafeCredentialProvider;
 import scot.oskar.typsafe4j.credential.EnvironmentTypeSafeCredentialProvider;
 import scot.oskar.typsafe4j.model.Model;
-import scot.oskar.typsafe4j.systemone.NoulCriteria;
-import scot.oskar.typsafe4j.systemone.Question;
+import scot.oskar.typsafe4j.question.*;
 import scot.oskar.typsafe4j.systemone.SystemOneRequest;
-import scot.oskar.typsafe4j.systemone.SystemOneResponse;
+
+import java.util.List;
+import java.util.Map;
 
 public class TypeSafeClientTest {
 
@@ -23,7 +24,7 @@ public class TypeSafeClientTest {
                 .withModel(Model.JEV_LATEST)
                 .withQuestion(
                         "is_angry",
-                        new Question.NoulQuestion(
+                        new NoulQuestion(
                                 "is this person angry?",
                                 new NoulCriteria(
                                         "yes this person is very mad",
@@ -34,7 +35,22 @@ public class TypeSafeClientTest {
                 )
                 .withQuestion(
                         "is_refund",
-                        Question.NoulQuestion.basic("is this question about a refund?")
+                        NoulQuestion.basic("is this question about a refund?")
+                )
+                .withQuestion(
+                        "calmness_level",
+                        new ChoiceQuestion("how calm is this person?", Map.of(
+                                "very_calm", "customer is very calm",
+                                "moderate", "the customer is a bit frustrated",
+                                "angry", "this customer is not calm at all"
+                            )
+                        )
+                )
+                .withQuestion("calmness_score",
+                        new ScoreQuestion(
+                                "which department should deal with this?",
+                                List.of("sales", "customer_support", "development")
+                        )
                 )
                 .build());
     }

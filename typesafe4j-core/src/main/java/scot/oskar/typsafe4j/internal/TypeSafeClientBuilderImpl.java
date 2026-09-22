@@ -1,5 +1,6 @@
 package scot.oskar.typsafe4j.internal;
 
+import org.jspecify.annotations.NonNull;
 import scot.oskar.typsafe4j.TypeSafeClient;
 import scot.oskar.typsafe4j.TypeSafeClientBuilder;
 import scot.oskar.typsafe4j.credential.TypeSafeCredentialProvider;
@@ -14,18 +15,18 @@ public final class TypeSafeClientBuilderImpl implements TypeSafeClientBuilder {
     public TypeSafeClientBuilderImpl() { }
 
     @Override
-    public TypeSafeClientBuilder withCredentialProvider(TypeSafeCredentialProvider credentialProvider) {
+    public @NonNull TypeSafeClientBuilder withCredentialProvider(@NonNull TypeSafeCredentialProvider credentialProvider) {
         this.credentialProvider = credentialProvider;
         return this;
     }
 
-    public TypeSafeClientBuilder withTimeout(Duration timeout) {
+    public @NonNull TypeSafeClientBuilder withTimeout(@NonNull Duration timeout) {
         this.timeout = timeout;
         return this;
     }
 
     @Override
-    public TypeSafeClient build() {
+    public @NonNull TypeSafeClient build() {
         return new TypeSafeClientImpl(this.credentialProvider, timeout);
     }
 }

@@ -1,4 +1,4 @@
-package scot.oskar.typsafe4j.systemone;
+package scot.oskar.typsafe4j.question;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

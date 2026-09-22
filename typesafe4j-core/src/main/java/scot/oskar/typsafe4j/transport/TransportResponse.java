@@ -6,5 +6,5 @@ import java.util.Map;
 public record TransportResponse(
         int statusCode,
         Map<String, List<String>> headers,
-        byte[] body
+        String body
 ) { }

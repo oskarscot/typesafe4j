@@ -1,5 +1,6 @@
 package scot.oskar.typsafe4j;
 
+import org.jspecify.annotations.NonNull;
 import scot.oskar.typsafe4j.internal.TypeSafeClientBuilderImpl;
 import scot.oskar.typsafe4j.systemone.SystemOneRequest;
 import scot.oskar.typsafe4j.systemone.SystemOneResponse;
@@ -10,6 +11,7 @@ public interface TypeSafeClient {
         return new TypeSafeClientBuilderImpl();
     }
 
-    SystemOneResponse systemOne(SystemOneRequest request);
+    @NonNull
+    SystemOneResponse systemOne(@NonNull SystemOneRequest request);
 
 }

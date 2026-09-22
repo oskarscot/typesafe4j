@@ -1,15 +1,19 @@
 package scot.oskar.typsafe4j;
 
+import org.jspecify.annotations.NonNull;
 import scot.oskar.typsafe4j.credential.TypeSafeCredentialProvider;
 
 import java.time.Duration;
 
 public interface TypeSafeClientBuilder {
 
-    TypeSafeClientBuilder withCredentialProvider(TypeSafeCredentialProvider credentialProvider);
+    @NonNull
+    TypeSafeClientBuilder withCredentialProvider(@NonNull TypeSafeCredentialProvider credentialProvider);
 
-    TypeSafeClientBuilder withTimeout(Duration timeout);
+    @NonNull
+    TypeSafeClientBuilder withTimeout(@NonNull Duration timeout);
 
+    @NonNull
     TypeSafeClient build();
 
 }
