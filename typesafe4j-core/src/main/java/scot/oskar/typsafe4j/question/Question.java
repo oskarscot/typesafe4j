@@ -3,6 +3,7 @@ package scot.oskar.typsafe4j.question;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
+/// A choice, yes/no, or scoring question sent to System One.
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,

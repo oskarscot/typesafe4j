@@ -9,6 +9,7 @@ import scot.oskar.typsafe4j.transport.TransportRequest;
 
 import java.util.Map;
 
+/// Encodes System One requests as JSON using Jackson.
 public final class JacksonRequestEncoder implements RequestEncoder {
 
     private final ObjectMapper objectMapper = new ObjectMapper();

@@ -8,6 +8,7 @@ import scot.oskar.typsafe4j.serialiser.RequestDecoder;
 import scot.oskar.typsafe4j.systemone.SystemOneResponse;
 import scot.oskar.typsafe4j.transport.TransportResponse;
 
+/// Decodes System One JSON responses using Jackson.
 public class JacksonResponseDecoder implements RequestDecoder {
 
     private final ObjectMapper objectMapper = new ObjectMapper();

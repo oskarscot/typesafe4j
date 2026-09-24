@@ -7,11 +7,13 @@ import scot.oskar.typsafe4j.credential.TypeSafeCredentialProvider;
 
 import java.time.Duration;
 
+/// Default implementation of [TypeSafeClientBuilder].
 public final class TypeSafeClientBuilderImpl implements TypeSafeClientBuilder {
 
     private TypeSafeCredentialProvider credentialProvider;
     private Duration timeout =  Duration.ofSeconds(30);
 
+    /// Creates a builder with a 30-second connection timeout and no credential provider.
     public TypeSafeClientBuilderImpl() { }
 
     @Override
