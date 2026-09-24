@@ -7,9 +7,6 @@ import scot.oskar.typsafe4j.model.Model;
 import scot.oskar.typsafe4j.question.*;
 import scot.oskar.typsafe4j.systemone.SystemOneRequest;
 
-import java.util.List;
-import java.util.Map;
-
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TypeSafeClientTest {
@@ -25,33 +22,34 @@ public class TypeSafeClientTest {
                 .withModel(Model.JEV_LATEST)
                 .withQuestion(
                         "is_angry",
-                        new NoulQuestion(
-                                "is this person angry?",
-                                new NoulCriteria(
+                        NoulQuestion.builder()
+                                .instructions("is this person angry?")
+                                .criteria(new NoulCriteria(
                                         "yes this person is very mad",
                                         "nah they chill like that"
-                                )
-                        )
-
+                                ))
+                                .build()
                 )
                 .withQuestion(
                         "is_refund",
-                        NoulQuestion.basic("is this question about a refund?")
+                        NoulQuestion.builder()
+                                .instructions("is this question about a refund?")
+                                .build()
                 )
                 .withQuestion(
                         "calmness_level",
-                        new ChoiceQuestion("how calm is this person?", Map.of(
-                                "very_calm", "customer is very calm",
-                                "moderate", "the customer is a bit frustrated",
-                                "angry", "this customer is not calm at all"
-                            )
-                        )
+                        ChoiceQuestion.builder()
+                                .withInstructions("how calm is this person?")
+                                .withCriteria("very_calm", "customer is very calm")
+                                .withCriteria("moderate", "the customer is a bit frustrated")
+                                .withCriteria("angry", "this customer is not calm at all")
+                                .build()
                 )
-                .withQuestion("calmness_score",
-                        new ScoreQuestion(
-                                "which department should deal with this?",
-                                List.of("sales", "customer_support", "development")
-                        )
+                .withQuestion("department_score",
+                        ScoreQuestion.builder()
+                                .instructions("which department should deal with this?")
+                                .criteria("sales", "customer_support", "development")
+                                .build()
                 )
                 .build());
 
