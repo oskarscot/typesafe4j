@@ -7,6 +7,8 @@ import scot.oskar.typsafe4j.model.Model;
 import scot.oskar.typsafe4j.question.*;
 import scot.oskar.typsafe4j.systemone.SystemOneRequest;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TypeSafeClientTest {
@@ -45,10 +47,10 @@ public class TypeSafeClientTest {
                                 .withCriteria("angry", "this customer is not calm at all")
                                 .build()
                 )
-                .withQuestion("department_score",
+                .withQuestion("calmness_score",
                         ScoreQuestion.builder()
                                 .instructions("which department should deal with this?")
-                                .criteria("sales", "customer_support", "development")
+                                .criteria(List.of("sales", "customer_support", "development"))
                                 .build()
                 )
                 .build());

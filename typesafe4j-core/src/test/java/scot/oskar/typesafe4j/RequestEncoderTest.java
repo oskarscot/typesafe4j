@@ -22,18 +22,19 @@ public class RequestEncoderTest {
                 .withModel(Model.JEV_LATEST)
                 .withQuestion(
                         "is_angry",
-                        new NoulQuestion(
-                                "is this person angry?",
-                                new NoulCriteria(
-                                        "yes this person is very mad",
-                                        "nah they chill like that"
-                                )
-                        )
-
+                        NoulQuestion.builder()
+                                .instructions("is this person angry?")
+                                .criteria(new NoulCriteria(
+                                                "yes this person is very mad",
+                                                "nah they chill like that"
+                                        )
+                                ).build()
                 )
                 .withQuestion(
                         "is_refund",
-                        NoulQuestion.basic("is this question about a refund?")
+                        NoulQuestion.builder()
+                                .instructions("is this question about a refund?")
+                                .build()
                 )
                 .build();
 
