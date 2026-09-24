@@ -14,6 +14,9 @@ public final class JacksonRequestEncoder implements RequestEncoder {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
+    /// Creates an encoder with a default Jackson mapper.
+    public JacksonRequestEncoder() { }
+
     @Override
     public TransportRequest buildRequest(@NonNull SystemOneRequest request) {
         try {

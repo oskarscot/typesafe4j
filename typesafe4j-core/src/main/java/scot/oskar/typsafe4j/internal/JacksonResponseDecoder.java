@@ -13,6 +13,9 @@ public class JacksonResponseDecoder implements RequestDecoder {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
+    /// Creates a decoder with a default Jackson mapper.
+    public JacksonResponseDecoder() { }
+
     @Override
     public SystemOneResponse decode(@NonNull TransportResponse response) {
         try {

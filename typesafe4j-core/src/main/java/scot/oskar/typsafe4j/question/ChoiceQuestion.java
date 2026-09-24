@@ -24,6 +24,8 @@ public record ChoiceQuestion(String instructions, Map<String, String> criteria) 
         private final Map<String, String> criteria = new HashMap<>();
         private String instructions;
 
+        /// Creates a builder with no choices or instructions.
+        public ChoiceQuestionBuilder() { }
 
         /// Sets the question instructions.
         ///

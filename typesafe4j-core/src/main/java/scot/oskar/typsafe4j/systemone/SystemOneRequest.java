@@ -33,6 +33,9 @@ public record SystemOneRequest(
         private String state;
         private String model = Model.JEV_LATEST.getModelAlias();
 
+        /// Creates a builder using `jev-latest` with no state or questions.
+        public SystemOneRequestBuilder() { }
+
         /// Sets the text to evaluate.
         ///
         /// @param state the input text

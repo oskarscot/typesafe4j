@@ -24,6 +24,9 @@ public record NoulQuestion(
         private String instructions;
         private NoulCriteria criteria;
 
+        /// Creates a builder with no instructions or criteria.
+        public NoulQuestionBuilder() { }
+
         /// Sets the question instructions.
         ///
         /// @param instructions the question instructions

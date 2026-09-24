@@ -23,6 +23,9 @@ public record ScoreQuestion(String instructions, List<String> criteria) implemen
         private String instructions;
         private List<String> criteria;
 
+        /// Creates a builder with no instructions or criteria.
+        public ScoreQuestionBuilder() { }
+
         /// Sets the question instructions.
         ///
         /// @param instructions the question instructions
